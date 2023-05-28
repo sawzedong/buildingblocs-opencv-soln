@@ -28,6 +28,8 @@ def visualize(input, faces, thickness=2):
         cv2.rectangle(input, (x,y), (x+w, y+h), (0, 255, 0), thickness)
 
         faceROI = input[y:y+h, x:x+w] # limits eye detection to only within where faces were detected
+        cv2.imshow("image", faceROI)
+        cv2.waitKey(0)
         faceROI = cv2.cvtColor(faceROI, cv2.COLOR_BGR2GRAY)
         faceROI = cv2.equalizeHist(faceROI)
 
